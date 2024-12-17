@@ -1,0 +1,161 @@
+/* General Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base Theme Modes */
+body {
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.light-mode {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.dark-mode {
+  background-color: #333;
+  color: #f8f9fa;
+}
+
+/* Navigation Bar with Dropmorphism Effect */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: black;
+}
+
+.nav-logo {
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  position:fixed ;
+}
+
+.theme-toggle-container {
+  cursor: pointer;
+}
+
+/* Main Section with Dropmorphism */
+.main-content {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.text-c {
+  position: relative;
+}
+
+.drop {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background: #54abfb;
+  border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+  opacity: 0.8;
+  border: 2px solid #3d93ff;
+}
+
+.drop::before {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #318cfe;
+  border-radius: 51% 49% 48% 52% / 62% 44% 56% 38%;
+  box-shadow: -20px 30px 16px #9EDDFF, -40px 60px 32px #6499E9, inset -6px 6px 10px #6499E9,
+    inset 2px 6px 10px #1a74e5, inset 20px -20px 22px #BEFFF7, inset 40px -40px 44px #a8ceff;
+}
+
+/* Search Bar with Neumorphic Effect */
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.search-bar {
+  padding: 15px 20px;
+  border-radius: 25px;
+  border: none;
+  font-size: 16px;
+  background: #ecf0f3;
+  box-shadow: inset 5px 5px 8px #cbced1, inset -5px -5px 8px #ffffff;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.search-bar:focus {
+  box-shadow: inset 2px 2px 5px #a3b0b6, inset -2px -2px 5px #ffffff;
+  transform: scale(1.05);
+}
+
+/* Courses Section */
+.course-section {
+  padding: 20px;
+}
+
+.course-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 10px;
+}
+
+.course-card {
+  background: #ecf0f3;
+  border-radius: 15px;
+  box-shadow: 8px 8px 15px #cbced1, -8px -8px 15px #ffffff;
+  padding: 15px;
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: inset 2px 2px 8px #a3b0b6, inset -2px -2px 8px #ffffff;
+}
+
+/* Footer Section */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #004080;
+  color: white;
+}
+
+/* Adjust Responsive Behavior */
+@media (max-width: 1024px) {
+  .search-bar {
+    width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .course-list {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .search-bar {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .course-card {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
