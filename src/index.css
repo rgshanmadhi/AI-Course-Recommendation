@@ -28,6 +28,7 @@ nav {
   color: white;
   font-size: 20px;
   position:fixed;
+  margin: 20px;
 }
 
 .theme-toggle {
@@ -86,7 +87,7 @@ nav {
 .domain-container {
   margin: 20px auto;
   padding: 20px;
-  background: white;
+  background: #004080;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 
@@ -49,22 +49,18 @@ function App() {
   const [theme, setTheme] = useState("light");
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  
-  const allCourses = [
-    { id: 1, title: "React Basics" },
-    { id: 2, title: "Advanced JavaScript" },
-    { id: 3, title: "Web Design Essentials" },
-    { id: 4, title: "UX/UI Fundamentals" },
-    { id: 5, title: "Machine Learning 101" },
-    { id: 6, title: "Introduction to Node.js" },
-    { id: 7, title: "Data Structures & Algorithms" },
-    { id: 8, title: "CSS Animations Mastery" },
-    { id: 9, title: "Python for Beginners" },
-    { id: 10, title: "Cloud Computing Concepts" },
-  ];
+  const [courses, setCourses] = useState([]); // To store courses from the backend
+
+  // Fetch all courses from backend when component mounts
+  useEffect(() => {
+    fetch("http://localhost:3000/api/courses")
+      .then((response) => response.json())
+      .then((data) => setCourses(data))
+      .catch((err) => console.error("Error fetching courses:", err));
+  }, []);
 
   // Filter courses based on the search term
-  const filteredCourses = allCourses.filter((course) =>
+  const filteredCourses = courses.filter((course) =>
     course.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
